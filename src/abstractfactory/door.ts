@@ -1,4 +1,4 @@
-import {Room} from "./room";
+import { Room } from "./room";
 import MazeElement from './interfaces'
 
 export class Door implements MazeElement {
@@ -8,23 +8,21 @@ export class Door implements MazeElement {
   // private room1: Room;  // declared in constructor
   // private room2: Room;
 
-  // constructor(r1: Room, r2: Room) {
   constructor(
     private room1: Room,
     private room2: Room) {
-    // super();
     //this.room1 = r1;  // automatically inserted
     //this.room2 = r2;
     this.doorID = Door.doorCounter++;
     console.log(
-      "creating Door#" + this.doorID + " between " + room1 + " and " + room2);
+      "creating Door #" + this.doorID + " between Rooms " + room1.getID() + " and " + room2.getID());
   }
 
   public toString(): string {
-    return "Door#" + this.doorID;
+    return "Door #" + this.doorID;
   }
 
-  public enter () : void {}
+  public enter(): void { }
 
 
 }

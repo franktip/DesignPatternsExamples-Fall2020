@@ -2,7 +2,8 @@ import Direction from "./direction";
 import MazeElement from "./interfaces";
 
 export interface Room extends MazeElement {
-  setSide(d: Direction, element: MazeElement) : void
+  getID () : number
+  setSide(d: Direction, element: MazeElement): void
   getSide(d: Direction): MazeElement
   toString(): string
 }
@@ -10,18 +11,21 @@ export interface Room extends MazeElement {
 export class PlainRoom implements Room {
 
   private static roomCounter: number = 1;
-  protected roomID: number;
+  public roomID: number;
+
   // these should each be Wall or Door.  
   // Puzzle: can you redo the types to ensure this property?
-  private northSide: MazeElement;  
+  private northSide: MazeElement;
   private southSide: MazeElement;
-  private eastSide:  MazeElement;
-  private westSide:  MazeElement;
+  private eastSide: MazeElement;
+  private westSide: MazeElement;
 
   constructor() {
-    this.roomID = PlainRoom.roomCounter++;  
-    console.log("creating PlainRoom#" + this.roomID)
+    this.roomID = PlainRoom.roomCounter++;
+    console.log("creating PlainRoom #" + this.roomID)
   }
+
+  public getID () : number {return this.roomID}
   public setSide(d: Direction, element: MazeElement) {
     switch (d) {
       case Direction.North:
@@ -36,11 +40,11 @@ export class PlainRoom implements Room {
       case Direction.West:
         this.westSide = element;
     }
-    console.log("setting " + d + 
-                " side of " +
-                this.toString() + 
-                " to " + 
-                element.toString());
+    console.log("setting " + d +
+      " side of " +
+      this.toString() +
+      " to " +
+      element.toString());
   }
 
   public getSide(d: Direction): MazeElement {
@@ -56,21 +60,11 @@ export class PlainRoom implements Room {
     }
   }
   public toString(): string {
-    return "PlainRoom#" + this.roomID;
+    return "PlainRoom #" + this.roomID;
   }
 
-  public enter () : void {}
+  public enter(): void { }
 
 
 }
-
-// exploding room, also implements interface Room
-export class ExplodingRoom extends PlainRoom {
-  public explode(): void { }
-  public toString(): string {
-    return "ExplodingRoom#" + this.roomID;
-  }
-}
-
-new ExplodingRoom ().explode  
 

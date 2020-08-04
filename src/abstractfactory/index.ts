@@ -1,17 +1,18 @@
 import {makeMaze} from "./client";
-import * as factories from './factory'
+import {PlainMazeElementFactory} from './factory'
+import {ExplodingMazeElementFactory} from './exploding-rooms'
 
-// actually build a maze
+// actually build some mazes
 console.log('======');
 console.log('building a plain maze');
-makeMaze(new factories.PlainMazeElementFactory());
+makeMaze(new PlainMazeElementFactory());
 console.log('finished building plain maze')
 console.log('======');
 console.log('')
 
 console.log('=======')
 console.log('building exploding maze')
-makeMaze(new factories.ExplodingMazeElementFactory());
+makeMaze(new ExplodingMazeElementFactory());
 console.log('finished building exploding maze')
 console.log('=======')
 

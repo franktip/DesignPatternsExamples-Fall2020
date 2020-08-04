@@ -1,7 +1,7 @@
 // factory.ts
-// defines PlainMazeFactory and ExplodingMazeFactory
+// defines PlainMazeFactory
 
-import { Room, PlainRoom, ExplodingRoom } from "./room"
+import { Room, PlainRoom } from "./room"
 import Wall from "./wall"
 import Door from './door'
 
@@ -17,11 +17,5 @@ export class PlainMazeElementFactory implements MazeElementFactory {
     public makeDoor(room1: Room, room2: Room): Door { return new Door(room1, room2) }
 }
 
-// make all rooms exploding
-export class ExplodingMazeElementFactory extends PlainMazeElementFactory {
-    public makeRoom(): ExplodingRoom { return new ExplodingRoom() }
-}
 
-// try out the factory
-new ExplodingMazeElementFactory().makeRoom().explode  //this works...
 
