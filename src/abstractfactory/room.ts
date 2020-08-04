@@ -72,3 +72,5 @@ export class ExplodingRoom extends PlainRoom {
   }
 }
 
+new ExplodingRoom ().explode  
+
