@@ -3,6 +3,7 @@ import * as Room from './room'
 import Door from './door'
 import Direction from './direction';
 import Wall from './wall';
+import { PlainMazeFactory} from 'factory'
 
 export function Maze1 () : Maze {
     let theMaze = new Maze();

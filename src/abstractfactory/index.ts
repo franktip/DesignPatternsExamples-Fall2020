@@ -1,4 +1,4 @@
-import Maze1 from "./client";
+import {Maze1} from "./client";
 
 // actually build a maze
 Maze1();

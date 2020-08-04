@@ -1,7 +1,7 @@
-import Room from "./room";
+import {Room} from "./room";
 import MazeElement from './interfaces'
 
-class Door implements MazeElement {
+export class Door implements MazeElement {
 
   private static doorCounter: number = 1;
   private doorID: number;

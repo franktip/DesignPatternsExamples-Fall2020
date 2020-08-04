@@ -10,7 +10,7 @@ export interface Room extends MazeElement {
 export class PlainRoom implements Room {
 
   private static roomCounter: number = 1;
-  private roomID: number;
+  protected roomID: number;
   // these should each be Wall or Door.  
   // Puzzle: can you redo the types to ensure this property?
   private northSide: MazeElement;  
@@ -64,9 +64,11 @@ export class PlainRoom implements Room {
 
 }
 
-// exp
-export class ExplodingRoom extends Room {
-  public explode () : void {}
+// exploding room, also implements interface Room
+export class ExplodingRoom extends PlainRoom {
+  public explode(): void { }
+  public toString(): string {
+    return "ExplodingRoom#" + this.roomID;
+  }
 }
 
-// export default Room
