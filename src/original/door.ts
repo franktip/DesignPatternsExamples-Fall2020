@@ -1,5 +1,5 @@
-//import { Room } from "./room";
-import {Room, MazeElement} from './interfaces'
+import Room from "./room";
+import MazeElement from './interfaces'
 
 class Door implements MazeElement {
 

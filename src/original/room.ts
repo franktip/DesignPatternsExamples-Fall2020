@@ -1,7 +1,11 @@
 import Direction from "./direction";
-import { MazeElement,Room } from "./interfaces";
+import MazeElement from "./interfaces";
 
-
+export interface Room extends MazeElement {
+  setSide(d: Direction, element: MazeElement) : void
+  getSide(d: Direction): MazeElement
+  toString(): string
+}
 
 export class PlainRoom implements Room {
 
@@ -60,4 +64,4 @@ export class PlainRoom implements Room {
 
 }
 
-// export default Room
+export default Room

@@ -1,14 +1,17 @@
-import * as interfaces from './interfaces'
+import Room from './room' 
 
-export class Maze implements interfaces.Maze {
+export interface  Maze {
+  addRoom(room: Room): void
+}
+export class Maze implements Maze {
 
-  private rooms: Set<interfaces.Room> = new Set<interfaces.Room>();
+  private rooms: Set<Room> = new Set<Room>();
 
   constructor() {
     console.log("Creating a maze (original version)..")
   }
 
-  public addRoom(room: interfaces.Room): void {
+  public addRoom(room: Room): void {
     if (!this.rooms.has(room)) {
       this.rooms.add(room)
     }

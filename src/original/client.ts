@@ -1,12 +1,10 @@
 import Maze from './maze'
-// import PlainRoom from './room'
 import * as Room from './room'
 import Door from './door'
 import Direction from './direction';
 import Wall from './wall';
 
-class MazeGame {
-  public createMaze(): Maze {
+export function Maze1 () : Maze {
     let theMaze = new Maze();
     let r1 = new Room.PlainRoom();
     let r2 = new Room.PlainRoom();
@@ -23,6 +21,6 @@ class MazeGame {
     r2.setSide(Direction.West, theDoor);
     return theMaze;
   }
-}
 
-export default MazeGame
+
+export default Maze1
