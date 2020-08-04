@@ -1,23 +1,32 @@
-import Room from "./room";
+//import { Room } from "./room";
+import {Room, MazeElement} from './interfaces'
 
-import MapSite from './mapsite'
+class Door implements MazeElement {
 
-class Door extends MapSite {
-  constructor(r1: Room, r2: Room) {
-    super();
-    this.room1 = r1;
-    this.room2 = r2;
-    this.doorNr = Door.doorCnt++;
-    console.log("creating Door#" + this.doorNr + " between " + r1 + " and " + r2);
+  private static doorCounter: number = 1;
+  private doorID: number;
+  // private room1: Room;  // declared in constructor
+  // private room2: Room;
+
+  // constructor(r1: Room, r2: Room) {
+  constructor(
+    private room1: Room,
+    private room2: Room) {
+    // super();
+    //this.room1 = r1;  // automatically inserted
+    //this.room2 = r2;
+    this.doorID = Door.doorCounter++;
+    console.log(
+      "creating Door#" + this.doorID + " between " + room1 + " and " + room2);
   }
+
   public toString(): string {
-    return "Door#" + this.doorNr;
+    return "Door#" + this.doorID;
   }
-  
-  private static doorCnt: number = 1;
-  private doorNr: number;
-  private room1: Room;
-  private room2: Room;
+
+  public enter () : void {}
+
+
 }
 
 export default Door

@@ -1,34 +1,45 @@
 import Direction from "./direction";
-import MapSite from "./mapsite";
+import { MazeElement,Room } from "./interfaces";
 
-class Room extends MapSite {
+
+
+export class PlainRoom implements Room {
+
+  private static roomCounter: number = 1;
+  private roomID: number;
+  // these should each be Wall or Door.  
+  // Puzzle: can you redo the types to ensure this property?
+  private northSide: MazeElement;  
+  private southSide: MazeElement;
+  private eastSide:  MazeElement;
+  private westSide:  MazeElement;
+
   constructor() {
-    super();
-    this.roomNr = Room.roomCnt++;
-    console.log("creating Room#" + this.roomNr)
+    this.roomID = PlainRoom.roomCounter++;  
+    console.log("creating PlainRoom#" + this.roomID)
   }
-  public setSide(d: Direction, site: MapSite) {
+  public setSide(d: Direction, element: MazeElement) {
     switch (d) {
       case Direction.North:
-        this.northSide = site;
+        this.northSide = element;
         break;
       case Direction.South:
-        this.southSide = site;
+        this.southSide = element;
         break;
       case Direction.East:
-        this.eastSide = site;
+        this.eastSide = element;
         break
       case Direction.West:
-        this.westSide = site;
+        this.westSide = element;
     }
     console.log("setting " + d + 
                 " side of " +
                 this.toString() + 
                 " to " + 
-                site.toString());
+                element.toString());
   }
 
-  public getSide(d: Direction): MapSite {
+  public getSide(d: Direction): MazeElement {
     switch (d) {
       case Direction.North:
         return this.northSide;
@@ -41,15 +52,12 @@ class Room extends MapSite {
     }
   }
   public toString(): string {
-    return "Room#" + this.roomNr;
+    return "PlainRoom#" + this.roomID;
   }
 
-  private static roomCnt: number = 1;
-  private roomNr: number;
-  private northSide: MapSite;
-  private southSide: MapSite;
-  private eastSide: MapSite;
-  private westSide: MapSite;
+  public enter () : void {}
+
+
 }
 
-export default Room
+// export default Room

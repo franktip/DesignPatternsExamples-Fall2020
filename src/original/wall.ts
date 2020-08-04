@@ -1,17 +1,21 @@
-import MapSite from "./mapsite";
+import {MazeElement} from "./interfaces";
 
-class Wall extends MapSite {
+class Wall implements MazeElement {
+  
+  private static wallCounter: number = 1;
+  private wallID: number;
+
   constructor() {
-    super();
-    this.wallNr = Wall.wallCnt++;
-    console.log("creating Wall#" + this.wallNr)
+    this.wallID = Wall.wallCounter++;
+    console.log("creating Wall#" + this.wallID)
   }
+  
   public toString(): string {
-    return "Wall#" + this.wallNr;
+    return "Wall#" + this.wallID;
   }
 
-  private static wallCnt: number = 1;
-  private wallNr: number;
+  public enter () : void {}
+
 }
 
 export default Wall
