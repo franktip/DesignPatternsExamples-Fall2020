@@ -1,28 +1,29 @@
 import Direction from "./direction";
-import MazeElement from "./interfaces";
+import IMazeElement from "./mazeelement";
 
-export interface Room extends MazeElement {
-  setSide(d: Direction, element: MazeElement) : void
-  getSide(d: Direction): MazeElement
+export interface IRoom extends IMazeElement {
+  setSide(d: Direction, element: IMazeElement) : void
+  getSide(d: Direction): IMazeElement
   toString(): string
 }
 
-export class PlainRoom implements Room {
+export class PlainRoom implements IRoom {
 
   private static roomCounter: number = 1;
   private roomID: number;
   // these should each be Wall or Door.  
   // Puzzle: can you redo the types to ensure this property?
-  private northSide: MazeElement;  
-  private southSide: MazeElement;
-  private eastSide:  MazeElement;
-  private westSide:  MazeElement;
+  private northSide: IMazeElement;  
+  private southSide: IMazeElement;
+  private eastSide:  IMazeElement;
+  private westSide:  IMazeElement;
 
   constructor() {
     this.roomID = PlainRoom.roomCounter++;  
-    console.log("creating PlainRoom#" + this.roomID)
+    console.log("creating PlainRoom #" + this.roomID)
   }
-  public setSide(d: Direction, element: MazeElement) {
+
+  public setSide(d: Direction, element: IMazeElement) {
     switch (d) {
       case Direction.North:
         this.northSide = element;
@@ -43,7 +44,7 @@ export class PlainRoom implements Room {
                 element.toString());
   }
 
-  public getSide(d: Direction): MazeElement {
+  public getSide(d: Direction): IMazeElement {
     switch (d) {
       case Direction.North:
         return this.northSide;
@@ -56,7 +57,7 @@ export class PlainRoom implements Room {
     }
   }
   public toString(): string {
-    return "PlainRoom#" + this.roomID;
+    return "PlainRoom #" + this.roomID;
   }
 
   public enter () : void {}
@@ -64,4 +65,4 @@ export class PlainRoom implements Room {
 
 }
 
-export default Room
+export default PlainRoom

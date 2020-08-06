@@ -1,24 +1,24 @@
 import Direction from "./direction";
-import MazeElement from "./interfaces";
+import IMazeElement from "./interfaces";
 
-export interface Room extends MazeElement {
+export interface IRoom extends IMazeElement {
   getID () : number
-  setSide(d: Direction, element: MazeElement): void
-  getSide(d: Direction): MazeElement
+  setSide(d: Direction, element: IMazeElement): void
+  getSide(d: Direction): IMazeElement
   toString(): string
 }
 
-export class PlainRoom implements Room {
+export class PlainRoom implements IRoom {
 
   private static roomCounter: number = 1;
   public roomID: number;
 
   // these should each be Wall or Door.  
   // Puzzle: can you redo the types to ensure this property?
-  private northSide: MazeElement;
-  private southSide: MazeElement;
-  private eastSide: MazeElement;
-  private westSide: MazeElement;
+  private northSide: IMazeElement;
+  private southSide: IMazeElement;
+  private eastSide: IMazeElement;
+  private westSide: IMazeElement;
 
   constructor() {
     this.roomID = PlainRoom.roomCounter++;
@@ -26,7 +26,7 @@ export class PlainRoom implements Room {
   }
 
   public getID () : number {return this.roomID}
-  public setSide(d: Direction, element: MazeElement) {
+  public setSide(d: Direction, element: IMazeElement) {
     switch (d) {
       case Direction.North:
         this.northSide = element;
@@ -47,7 +47,7 @@ export class PlainRoom implements Room {
       element.toString());
   }
 
-  public getSide(d: Direction): MazeElement {
+  public getSide(d: Direction): IMazeElement {
     switch (d) {
       case Direction.North:
         return this.northSide;

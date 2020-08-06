@@ -2,10 +2,10 @@
   "name": "sample_package",
   "version": "1.0.0",
   "description": "Maze Example (Original)",
-  "main": "driver.ts",
+  "main": "index.ts",
   "scripts": {
     "test": "ts-mocha **/*.spec.ts",
-    "run": "tsc && node dist/driver.js"
+    "run": "tsc && node dist/index.js"
   },
   "author": "Mitch following Frank",
   "license": "ISC",

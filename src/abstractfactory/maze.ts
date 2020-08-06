@@ -1,13 +1,13 @@
-import { Room } from './room'
+import { IRoom } from './room'
 
 export interface Maze {
-  addRoom(room: Room): void
+  addRoom(room: IRoom): void
 }
 export class Maze implements Maze {
 
-  private rooms: Set<Room> = new Set<Room>();
+  private rooms: Set<IRoom> = new Set<IRoom>();
 
-  public addRoom(room: Room): void {
+  public addRoom(room: IRoom): void {
     if (!this.rooms.has(room)) {
       this.rooms.add(room)
     }
