@@ -1,5 +1,5 @@
 import Direction from "./direction";
-import IMazeElement from "./interfaces";
+import {IMazeElement} from "./mazeelement";
 
 export interface IRoom extends IMazeElement {
   getID () : number
@@ -11,14 +11,13 @@ export interface IRoom extends IMazeElement {
 export class PlainRoom implements IRoom {
 
   private static roomCounter: number = 1;
-  public roomID: number;
-
+  protected roomID: number;
   // these should each be Wall or Door.  
   // Puzzle: can you redo the types to ensure this property?
-  private northSide: IMazeElement;
+  private northSide: IMazeElement;  
   private southSide: IMazeElement;
-  private eastSide: IMazeElement;
-  private westSide: IMazeElement;
+  private eastSide:  IMazeElement;
+  private westSide:  IMazeElement;
 
   constructor() {
     this.roomID = PlainRoom.roomCounter++;
@@ -63,8 +62,9 @@ export class PlainRoom implements IRoom {
     return "PlainRoom #" + this.roomID;
   }
 
-  public enter(): void { }
+  public enter () : void {}
 
 
 }
+
 

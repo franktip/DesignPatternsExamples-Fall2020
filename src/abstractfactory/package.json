@@ -1,7 +1,7 @@
 {
   "name": "maze-example",
   "version": "1.0.0",
-  "description": "Maze Example (abstract factory)",
+  "description": "Maze Example (Abstract Factory)",
   "main": "index.ts",
   "scripts": {
     "test": "ts-mocha **/*.spec.ts",

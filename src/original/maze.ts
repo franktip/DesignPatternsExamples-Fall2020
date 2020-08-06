@@ -1,4 +1,4 @@
-import IRoom from './room' 
+import {IRoom} from './room' 
 
 export interface  IMaze {
   addRoom(room: IRoom): void

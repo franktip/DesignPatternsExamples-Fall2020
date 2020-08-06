@@ -1,8 +1,9 @@
 import Direction from "./direction";
-import IMazeElement from "./mazeelement";
+import {IMazeElement} from "./mazeelement";
 
 export interface IRoom extends IMazeElement {
-  setSide(d: Direction, element: IMazeElement) : void
+  getID () : number
+  setSide(d: Direction, element: IMazeElement): void
   getSide(d: Direction): IMazeElement
   toString(): string
 }
@@ -23,6 +24,7 @@ export class PlainRoom implements IRoom {
     console.log("creating PlainRoom #" + this.roomID)
   }
 
+  public getID () : number {return this.roomID}
   public setSide(d: Direction, element: IMazeElement) {
     switch (d) {
       case Direction.North:
@@ -65,4 +67,4 @@ export class PlainRoom implements IRoom {
 
 }
 
-export default PlainRoom
+

@@ -1,8 +1,8 @@
 import {Maze,IMaze} from './maze'
-import PlainRoom from './room'
+import {PlainRoom} from './room'
 import Door from './door'
 import Direction from './direction';
-import Wall from './wall';
+import {Wall} from './wall';
 
 
 export function Maze1 () : IMaze {

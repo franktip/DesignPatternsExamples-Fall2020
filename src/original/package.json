@@ -1,11 +1,11 @@
 {
-  "name": "sample_package",
+  "name": "maze-example",
   "version": "1.0.0",
   "description": "Maze Example (Original)",
   "main": "index.ts",
   "scripts": {
     "test": "ts-mocha **/*.spec.ts",
-    "run": "tsc && node dist/index.js"
+    "run": "tsc && node ./dist/index.js"
   },
   "author": "Mitch following Frank",
   "license": "ISC",

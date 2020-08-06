@@ -1,5 +1,5 @@
-import IRoom from "./room";
-import IMazeElement from './mazeelement'
+import {IRoom} from "./room";
+import {IMazeElement} from './mazeelement'
 
 class Door implements IMazeElement {
 
@@ -8,7 +8,6 @@ class Door implements IMazeElement {
   // private room1: Room;  // declared in constructor
   // private room2: Room;
 
-  // constructor(r1: Room, r2: Room) {
   constructor(
     private room1: IRoom,
     private room2: IRoom) {
@@ -16,7 +15,7 @@ class Door implements IMazeElement {
     //this.room2 = r2;
     this.doorID = Door.doorCounter++;
     console.log(
-      "creating Door #" + this.doorID + " between " + room1 + " and " + room2);
+      "creating Door #" + this.doorID + " between Rooms " + room1.getID() + " and " + room2.getID());
   }
 
   public toString(): string {

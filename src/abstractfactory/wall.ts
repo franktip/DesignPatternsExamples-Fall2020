@@ -1,21 +1,21 @@
-import {MazeElement} from "./interfaces";
+import {IMazeElement} from "./mazeelement";
 
-class Wall implements MazeElement {
+export class Wall implements IMazeElement {
   
   private static wallCounter: number = 1;
   private wallID: number;
 
   constructor() {
     this.wallID = Wall.wallCounter++;
-    console.log("creating Wall#" + this.wallID)
+    console.log("creating Wall #" + this.wallID)
   }
   
   public toString(): string {
-    return "Wall#" + this.wallID;
+    return "Wall #" + this.wallID;
   }
 
   public enter () : void {}
 
 }
 
-export default Wall
+

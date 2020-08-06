@@ -1,6 +1,6 @@
 import {IMazeElement} from "./mazeelement";
 
-class Wall implements IMazeElement {
+export class Wall implements IMazeElement {
   
   private static wallCounter: number = 1;
   private wallID: number;
@@ -18,4 +18,3 @@ class Wall implements IMazeElement {
 
 }
 
-export default Wall

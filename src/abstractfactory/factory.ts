@@ -1,9 +1,9 @@
 // factory.ts
 // defines PlainMazeFactory
 
-import { IRoom, PlainRoom } from "./room"
-import Wall from "./wall"
-import Door from './door'
+import {IRoom, PlainRoom} from "./room"
+import {Wall} from "./wall"
+import {Door} from './door'
 
 export interface IMazeElementFactory {
     makeRoom(): IRoom
