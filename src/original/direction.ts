@@ -5,4 +5,5 @@ enum Direction {
   West = 'West'
 }
 
+// why "default"?
 export default Direction

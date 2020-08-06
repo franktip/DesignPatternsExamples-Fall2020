@@ -1,0 +1,21 @@
+{
+  "name": "maze-example",
+  "version": "1.0.0",
+  "description": "Maze Example (Original)",
+  "main": "index.ts",
+  "scripts": {
+    "test": "ts-mocha **/*.spec.ts",
+    "run": "tsc && node ./dist/index.js"
+  },
+  "author": "Mitch following Frank",
+  "license": "ISC",
+  "dependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "ts-mocha": "^7.0.0",
+    "typescript": "^3.9.6"
+  },
+  "keywords": []
+}

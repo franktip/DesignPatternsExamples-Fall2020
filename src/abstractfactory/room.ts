@@ -1,34 +1,52 @@
 import Direction from "./direction";
-import MapSite from "./mapsite";
+import {IMazeElement} from "./mazeelement";
 
-class Room extends MapSite {
+export interface IRoom extends IMazeElement {
+  getID () : number
+  setSide(d: Direction, element: IMazeElement): void
+  getSide(d: Direction): IMazeElement
+  toString(): string
+}
+
+export class PlainRoom implements IRoom {
+
+  private static roomCounter: number = 1;
+  protected roomID: number;
+  // these should each be Wall or Door.  
+  // Puzzle: can you redo the types to ensure this property?
+  private northSide: IMazeElement;  
+  private southSide: IMazeElement;
+  private eastSide:  IMazeElement;
+  private westSide:  IMazeElement;
+
   constructor() {
-    super();
-    this.roomNr = Room.roomCnt++;
-    console.log("creating Room#" + this.roomNr)
+    this.roomID = PlainRoom.roomCounter++;
+    console.log("creating PlainRoom #" + this.roomID)
   }
-  public setSide(d: Direction, site: MapSite) {
+
+  public getID () : number {return this.roomID}
+  public setSide(d: Direction, element: IMazeElement) {
     switch (d) {
       case Direction.North:
-        this.northSide = site;
+        this.northSide = element;
         break;
       case Direction.South:
-        this.southSide = site;
+        this.southSide = element;
         break;
       case Direction.East:
-        this.eastSide = site;
+        this.eastSide = element;
         break
       case Direction.West:
-        this.westSide = site;
+        this.westSide = element;
     }
-    console.log("setting " + d + 
-                " side of " +
-                this.toString() + 
-                " to " + 
-                site.toString());
+    console.log("setting " + d +
+      " side of " +
+      this.toString() +
+      " to " +
+      element.toString());
   }
 
-  public getSide(d: Direction): MapSite {
+  public getSide(d: Direction): IMazeElement {
     switch (d) {
       case Direction.North:
         return this.northSide;
@@ -41,15 +59,12 @@ class Room extends MapSite {
     }
   }
   public toString(): string {
-    return "Room#" + this.roomNr;
+    return "PlainRoom #" + this.roomID;
   }
 
-  private static roomCnt: number = 1;
-  private roomNr: number;
-  private northSide: MapSite;
-  private southSide: MapSite;
-  private eastSide: MapSite;
-  private westSide: MapSite;
+  public enter () : void {}
+
+
 }
 
-export default Room
+
