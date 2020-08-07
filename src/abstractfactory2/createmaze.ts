@@ -6,10 +6,10 @@ import Wall from './wall';
 import IMazeFactory from './imazefactory';
 
 function createMaze(factory: IMazeFactory): Maze {
-  var theMaze = factory.makeMaze();
-  var r1 = factory.makeRoom();
-  var r2 = factory.makeRoom();
-  var theDoor = factory.makeDoor(r1, r2);
+  let theMaze = factory.makeMaze();
+  let r1 = factory.makeRoom();
+  let r2 = factory.makeRoom();
+  let theDoor = factory.makeDoor(r1, r2);
   theMaze.addRoom(r1);
   theMaze.addRoom(r2);
   r1.setSide(Direction.North, factory.makeWall());

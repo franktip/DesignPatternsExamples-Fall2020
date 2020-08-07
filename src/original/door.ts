@@ -6,12 +6,12 @@ class Door implements IMazeElement {
   private doorID: number;
   constructor(private room1: Room, private room2: Room) { 
     this.doorID = Door.doorCounter++;
-    console.log("creating Door#" + this.doorID + " between " + 
+    console.log("creating Door #" + this.doorID + " between " + 
                 room1 + " and " + room2);
   }
   enter(): void { }
   public toString(): string {
-    return "Door#" + this.doorID;
+    return "Door #" + this.doorID;
   }
 }
 

@@ -11,7 +11,7 @@ class Room implements IMazeElement {
 
   constructor() { 
     this.roomID = Room.roomCounter++;
-    console.log("creating Room#" + this.roomID)
+    console.log("creating Room #" + this.roomID)
   }
   enter(): void { }
   public setSide(d: Direction, site: IMazeElement) {
@@ -48,7 +48,7 @@ class Room implements IMazeElement {
     }
   }
   public toString(): string {
-    return "Room#" + this.roomID;
+    return "Room #" + this.roomID;
   }
 }
 
