@@ -1,17 +1,16 @@
-import MapSite from "./mapsite";
+import IMazeElement from "./imazeelement";
 
-class Wall extends MapSite {
-  constructor() {
-    super();
-    this.wallNr = Wall.wallCnt++;
-    console.log("creating Wall#" + this.wallNr)
+class Wall implements IMazeElement {
+  private static wallCounter: number = 1;
+  private wallID: number;
+  constructor() { 
+    this.wallID = Wall.wallCounter++;
+    console.log("creating Wall #" + this.wallID)
   }
+  public enter(): void { }
   public toString(): string {
-    return "Wall#" + this.wallNr;
+    return "Wall #" + this.wallID;
   }
-
-  private static wallCnt: number = 1;
-  private wallNr: number;
 }
 
 export default Wall

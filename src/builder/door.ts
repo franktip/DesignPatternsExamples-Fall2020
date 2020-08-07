@@ -1,23 +1,18 @@
 import Room from "./room";
+import IMazeElement from "./imazeelement";
 
-import MapSite from './mapsite'
-
-class Door extends MapSite {
-  constructor(r1: Room, r2: Room) {
-    super();
-    this.room1 = r1;
-    this.room2 = r2;
-    this.doorNr = Door.doorCnt++;
-    console.log("creating Door#" + this.doorNr + " between " + r1 + " and " + r2);
+class Door implements IMazeElement {
+  private static doorCounter: number = 1;
+  private doorID: number;
+  constructor(private room1: Room, private room2: Room) { 
+    this.doorID = Door.doorCounter++;
+    console.log("creating Door #" + this.doorID + " between " + 
+                room1 + " and " + room2);
   }
+  enter(): void { }
   public toString(): string {
-    return "Door#" + this.doorNr;
+    return "Door #" + this.doorID;
   }
-  
-  private static doorCnt: number = 1;
-  private doorNr: number;
-  private room1: Room;
-  private room2: Room;
 }
 
 export default Door
