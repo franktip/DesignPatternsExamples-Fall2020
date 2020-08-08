@@ -1,31 +1,20 @@
 import Direction from "./direction";
-import {IMazeElement} from "./mazeelement";
+import IMazeElement from "./imazeelement";
 
-export interface IRoom extends IMazeElement {
-  getID () : number
-  setSide(d: Direction, element: IMazeElement): void
-  getSide(d: Direction): IMazeElement
-  toString(): string
-}
-
-export class PlainRoom implements IRoom {
-
+class Room implements IMazeElement {
   private static roomCounter: number = 1;
   private roomID: number;
-  // these should each be Wall or Door.  
-  // Puzzle: can you redo the types to ensure this property?
-  private northSide: IMazeElement;  
+  private northSide: IMazeElement;
   private southSide: IMazeElement;
-  private eastSide:  IMazeElement;
-  private westSide:  IMazeElement;
+  private eastSide: IMazeElement;
+  private westSide: IMazeElement;
 
-  constructor() {
-    this.roomID = PlainRoom.roomCounter++;  
-    console.log("creating PlainRoom #" + this.roomID)
+  constructor() { 
+    this.roomID = Room.roomCounter++;
+    console.log("creating Room #" + this.roomID)
   }
-
-  public getID () : number {return this.roomID}
-  public setSide(d: Direction, element: IMazeElement) {
+  enter(): void { }
+  public setSide(d: Direction, site: IMazeElement) {
     switch (d) {
       case Direction.North:
         this.northSide = element;
@@ -59,12 +48,8 @@ export class PlainRoom implements IRoom {
     }
   }
   public toString(): string {
-    return "PlainRoom #" + this.roomID;
+    return "Room #" + this.roomID;
   }
-
-  public enter () : void {}
-
-
 }
 
 

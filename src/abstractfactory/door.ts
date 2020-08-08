@@ -1,22 +1,19 @@
-import {IRoom} from "./room";
-import {IMazeElement} from './mazeelement'
+import Room from "./room";
+import IMazeElement from "./imazeelement";
 
-export class Door implements IMazeElement {
-
+class Door implements IMazeElement {
   private static doorCounter: number = 1;
   private doorID: number;
-
-  constructor(
-    private room1: IRoom,
-    private room2: IRoom) {
+  constructor(private room1: Room, private room2: Room) { 
     this.doorID = Door.doorCounter++;
-    console.log(
-      "creating Door #" + this.doorID + " between Rooms " + room1.getID() + " and " + room2.getID());
+    console.log("creating Door #" + this.doorID + " between " + 
+                room1 + " and " + room2);
   }
-
+  enter(): void { }
   public toString(): string {
     return "Door #" + this.doorID;
   }
+}
 
   public enter(): void { }
 

@@ -1,6 +1,7 @@
 import Room from './room'
 
 class Maze {
+  private rooms: Set<Room> = new Set<Room>();
   constructor() {
     console.log("Creating a maze (Factory Method version)..")
   }
@@ -9,7 +10,6 @@ class Maze {
       this.rooms.add(room)
     }
   }
-  private rooms: Set<Room> = new Set<Room>();
 }
 
 export default Maze

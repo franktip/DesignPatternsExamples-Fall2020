@@ -1,13 +1,20 @@
 import Direction from "./direction";
-import MapSite from "./mapsite";
+import IMazeElement from "./imazeelement";
 
-class Room extends MapSite {
-  constructor() {
-    super();
-    this.roomNr = Room.roomCnt++;
-    console.log("creating Room#" + this.roomNr)
+class Room implements IMazeElement {
+  private static roomCounter: number = 1;
+  protected roomID: number;
+  private northSide: IMazeElement;
+  private southSide: IMazeElement;
+  private eastSide: IMazeElement;
+  private westSide: IMazeElement;
+
+  constructor() { 
+    this.roomID = Room.roomCounter++;
+    console.log("creating Room #" + this.roomID)
   }
-  public setSide(d: Direction, site: MapSite) {
+  enter(): void { }
+  public setSide(d: Direction, site: IMazeElement) {
     switch (d) {
       case Direction.North:
         this.northSide = site;
@@ -28,7 +35,7 @@ class Room extends MapSite {
                 site.toString());
   }
 
-  public getSide(d: Direction): MapSite {
+  public getSide(d: Direction): IMazeElement {
     switch (d) {
       case Direction.North:
         return this.northSide;
@@ -41,15 +48,8 @@ class Room extends MapSite {
     }
   }
   public toString(): string {
-    return "Room#" + this.roomNr;
+    return "Room #" + this.roomID;
   }
-
-  private static roomCnt: number = 1;
-  private roomNr: number;
-  private northSide: MapSite;
-  private southSide: MapSite;
-  private eastSide: MapSite;
-  private westSide: MapSite;
 }
 
 export default Room

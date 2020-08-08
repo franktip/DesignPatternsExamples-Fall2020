@@ -1,6 +1,7 @@
 import Room from './room'
 
 class Maze {
+  private rooms: Set<Room> = new Set<Room>();
   constructor() {
     console.log("Creating a maze (prototype version)..")
   }
@@ -11,11 +12,10 @@ class Maze {
   }
   // should restrict to empty mazes
   public clone() : Maze {
-     var maze : Maze = new Maze();
-     maze.rooms = this.rooms;
-     return maze;
-  }
-  private rooms: Set<Room> = new Set<Room>();
+    let maze : Maze = new Maze();
+    maze.rooms = this.rooms;
+    return maze;
+ }
 }
 
 export default Maze

@@ -1,4 +1,3 @@
-import Maze1 from "./client";
+import createMaze from "./createmaze";
 
-// actually build a maze
-Maze1();
+createMaze();

@@ -7,6 +7,8 @@ export class Maze implements IMaze {
 
   private rooms: Set<IRoom> = new Set<IRoom>();
 
+// class Maze {
+//   private rooms: Set<Room> = new Set<Room>();
   constructor() {
     console.log("Creating a maze (original version)..")
   }
@@ -16,7 +18,6 @@ export class Maze implements IMaze {
       this.rooms.add(room)
     }
   }
- 
 }
 
 // we use both Maze and IMaze, so can't use export default here.
