@@ -13,3 +13,4 @@ class Wall implements IMazeElement {
   }
 }
 
+export default Wall

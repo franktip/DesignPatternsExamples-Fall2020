@@ -15,6 +15,4 @@ class Door implements IMazeElement {
   }
 }
 
-  public enter(): void { }
-
-}
+export default Door

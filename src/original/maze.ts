@@ -1,23 +1,15 @@
-import {IRoom} from './room' 
+import Room from './room'
 
-export interface  IMaze {
-  addRoom(room: IRoom): void
-}
-export class Maze implements IMaze {
-
-  private rooms: Set<IRoom> = new Set<IRoom>();
-
-// class Maze {
-//   private rooms: Set<Room> = new Set<Room>();
+class Maze {
+  private rooms: Set<Room> = new Set<Room>();
   constructor() {
     console.log("Creating a maze (original version)..")
   }
-
-  public addRoom(room: IRoom): void {
+  public addRoom(room: Room): void {
     if (!this.rooms.has(room)) {
       this.rooms.add(room)
     }
   }
 }
 
-// we use both Maze and IMaze, so can't use export default here.
+export default Maze

@@ -17,22 +17,22 @@ class Room implements IMazeElement {
   public setSide(d: Direction, site: IMazeElement) {
     switch (d) {
       case Direction.North:
-        this.northSide = element;
+        this.northSide = site;
         break;
       case Direction.South:
-        this.southSide = element;
+        this.southSide = site;
         break;
       case Direction.East:
-        this.eastSide = element;
+        this.eastSide = site;
         break
       case Direction.West:
-        this.westSide = element;
+        this.westSide = site;
     }
     console.log("setting " + d + 
                 " side of " +
                 this.toString() + 
                 " to " + 
-                element.toString());
+                site.toString());
   }
 
   public getSide(d: Direction): IMazeElement {
@@ -52,4 +52,4 @@ class Room implements IMazeElement {
   }
 }
 
-
+export default Room
