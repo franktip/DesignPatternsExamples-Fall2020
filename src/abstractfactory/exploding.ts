@@ -1,5 +1,6 @@
 import Room from "./room";
 import PlainMazeFactory from "./plainmazefactory";
+import IMazeFactory from './imazefactory'
 
 class ExplodingRoom extends Room {
   constructor(public hasBomb: boolean) {
@@ -11,7 +12,9 @@ class ExplodingRoom extends Room {
   }
 }
 
-class ExplodingRoomFactory extends PlainMazeFactory {
+class ExplodingRoomFactory extends PlainMazeFactory
+  implements IMazeFactory // implements the abstract factory 
+{
   private roomCounter: number = 0
   public makeRoom(): ExplodingRoom {
     this.roomCounter++;
