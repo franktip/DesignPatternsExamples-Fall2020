@@ -29,16 +29,21 @@ class Directory extends Node {
 
     // this one works
     // foo.push(...) side-effects foo (but only returns the length of the result)
+    //
     // this.children.forEach(function(child){result.push(...child.find(s))})
     // return result;                                                        
 
-    // and this one works
-    // but foo.concat(...) is functional
+    // this one also works
+    // foo.concat(...) is functional, so you need to assign the result
+    //
     // this.children.forEach(function (child) {
     //   result = result.concat(child.find(s))
     // })
     // return result;
 
+    // as does this one
+    // here the assignment is carried out in the plumbing of 'reduce'
+    //
     return this.children.reduce(function (sofar, child) {
       return sofar.concat(child.find(s))
     },
