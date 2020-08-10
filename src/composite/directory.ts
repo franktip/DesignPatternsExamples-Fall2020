@@ -49,6 +49,14 @@ class Directory extends Node {
     },
       result)
   }
+  
+  // yet another version:
+  public find2(s: string): Array<string> {
+    let roots = [this.getAbsoluteName()].filter((e) => e.indexOf(s) != -1)
+    return this.children.reduce(
+      (sofar, child) => sofar.concat(child.find(s)),
+      roots)
+  }
 }
 
 
