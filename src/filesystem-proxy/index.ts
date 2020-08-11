@@ -10,7 +10,7 @@ let foo = new Directory("foo", usr);
 new File("bar1", foo);
 new File("xbar2", foo);
 new File("yybarzz3", foo);
-let link = new Link("link", usr, root);
+let link = new Link("link1", usr, root);
 new Link("link2", link, root);
 console.log(root.find("bar"));
 
