@@ -16,10 +16,16 @@ class Directory extends Node {
     this.children.push(n);
   }
   public find(s: string): Array<string> {
-    let result = new Array<string>();
-    if (this.name.indexOf(s) != -1) {
-      result.push(this.getAbsoluteName());
-    }
+    // agreed best version :)
+    let result = (this.name.indexOf(s) != -1) ? [this.getAbsoluteName()] : []
+    return this.children.reduce(function (sofar, child) {
+      return sofar.concat(child.find(s))
+    },
+      result)
+    // let result = new Array<string>();
+    // if (this.name.indexOf(s) != -1) {
+    //   result.push(this.getAbsoluteName());
+    // }
 
     // original
     // for (let child of this.children) {     
@@ -44,10 +50,7 @@ class Directory extends Node {
     // as does this one
     // here the assignment is carried out in the plumbing of 'reduce'
     //
-    return this.children.reduce(function (sofar, child) {
-      return sofar.concat(child.find(s))
-    },
-      result)
+    
   }
   
   // yet another version:
