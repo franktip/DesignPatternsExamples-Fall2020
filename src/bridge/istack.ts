@@ -1,7 +1,7 @@
-interface StackImpl<T> {
+interface IStack<T> {
   push(t: T) : void
   pop() : T
   size() : number
 }
 
-export default StackImpl
+export default IStack

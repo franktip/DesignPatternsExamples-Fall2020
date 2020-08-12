@@ -1,4 +1,4 @@
-import StackImpl from "./stackimpl";
+import IStack from "./istack";
 
 class ListNode<T> {
   constructor(value: T){
@@ -11,7 +11,7 @@ class ListNode<T> {
   public prev: ListNode<T>;
 }
 
-class LinkedListBasedStack<T> implements StackImpl<T> {
+class LinkedListBasedStack<T> implements IStack<T> {
   private tail : ListNode<T>;
   private count: number;
 

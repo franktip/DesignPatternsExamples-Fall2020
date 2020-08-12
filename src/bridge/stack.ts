@@ -1,7 +1,7 @@
 import StackType from "./stacktype";
 import ArrayBasedStack from "./arraybasedstack";
 import LinkedListBasedStack from "./linkedlistbasedstack";
-import StackImpl from "./stackimpl";
+import IStack from "./istack";
 
 class Stack<T> {
   constructor(implType: StackType){
@@ -18,7 +18,7 @@ class Stack<T> {
   public pop(): T { return this.impl.pop(); }
   public size(): number { return this.impl.size(); }
 
-  private impl: StackImpl<T>;
+  private impl: IStack<T>;
 }
 
 export default Stack 

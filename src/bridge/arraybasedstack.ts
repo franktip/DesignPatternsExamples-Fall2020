@@ -1,6 +1,6 @@
-import StackImpl from "./stackimpl";
+import IStack from "./istack";
  
-class ArrayBasedStack<T> implements StackImpl<T> {
+class ArrayBasedStack<T> implements IStack<T> {
   private elements : T[];    
   private count : number;
 
