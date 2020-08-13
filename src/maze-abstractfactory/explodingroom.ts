@@ -11,13 +11,4 @@ class ExplodingRoom extends Room {
   }
 }
 
-class ExplodingRoomFactory extends PlainMazeFactory {
-  private roomCounter: number = 0
-  public makeRoom(): ExplodingRoom {
-    this.roomCounter++;
-    // put a bomb in every other room
-    return new ExplodingRoom((this.roomCounter % 2) == 0)
-  }
-}
-
-export { ExplodingRoom, ExplodingRoomFactory }
+export default ExplodingRoom

@@ -1,5 +1,5 @@
 import createMaze from "./createmaze";
-import { ExplodingRoomFactory } from "./exploding";
+import ExplodingRoomFactory from "./explodingfactory";
 
 let factory = new ExplodingRoomFactory()
 createMaze(factory);

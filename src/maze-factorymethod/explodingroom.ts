@@ -12,12 +12,4 @@ class ExplodingRoom extends Room {
   }
 }
 
-class ExplodingMazeGame extends MazeGame {
-  public makeRoom(): ExplodingRoom {
-    Room.roomCounter++;
-    // put a bomb in every other room
-    return new ExplodingRoom((Room.roomCounter % 2) == 0)
-  }
-}
-
-export { ExplodingRoom, ExplodingMazeGame }
+export default ExplodingRoom
