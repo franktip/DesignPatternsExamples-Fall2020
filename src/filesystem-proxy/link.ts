@@ -9,7 +9,6 @@ class Link extends Node {
     this.realNode = w;  
   }
   public getAbsoluteName() : string{
-    console.log(`calling getAbsoluteName on link ${this.name}`)
     return super.getAbsoluteName() + "@";
   }   
   public find(s: string) : Array<string> {
@@ -17,9 +16,7 @@ class Link extends Node {
     let resultsViaLink = this.realNode.find(s);
     let n = this.realNode.getAbsoluteName().length;
     for (let r of resultsViaLink){
-      
       let name = super.getAbsoluteName() + "/" + r.substring(n);
-      console.log(`r = ${r}, r.substring(n) = ${r.substring(n)}, name = ${name}`)
       result.push(name);
     }
     return result;
