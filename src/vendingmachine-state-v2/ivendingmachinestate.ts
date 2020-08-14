@@ -1,7 +1,10 @@
 import VendingMachine from "./vendingmachine";
 
-// each of these methods should return the next state.
-// the VendingMachine argument is used to send commands back to the vending machine
+// PURPOSE:
+// each method 
+//  EFFECT: sends appropriate commands back to the given vending machine
+//  RETURNS: the next state after the specified input
+
 interface IVendingMachineState {
   addNickel(vm:VendingMachine)  : IVendingMachineState
   addDime(vm:VendingMachine)    : IVendingMachineState
