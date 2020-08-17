@@ -1,6 +1,6 @@
 import File from './file'
 
-class FileObserver implements Observer {
+class FileObserver implements IObserver {
   constructor(private subject: File){
     subject.attach(this); 
   }

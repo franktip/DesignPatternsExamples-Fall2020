@@ -1,7 +1,7 @@
 import VendingMachine from './vendingmachine'
 
-let v = new VendingMachine();
-v.addNickel();
-v.addDime();
-v.addNickel();
-v.addQuarter();
+let vm = new VendingMachine();
+vm.addNickel();
+vm.addDime();
+vm.addNickel();
+vm.addQuarter();

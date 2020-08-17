@@ -1,7 +1,9 @@
 import Node from './node'
-import Iterator from './iterator'
+import IIterator from './iiterator'
 
 class Directory extends Node {
+  private children: Array<Node>;
+
   constructor(n: string, p?: Directory){ 
     super(n,p);
     this.children = []; 
@@ -22,32 +24,30 @@ class Directory extends Node {
     }
     return result;
   }
-  public iterator() : Iterator<Node> {
+  public iterator() : IIterator<Node> {
     return new DirectoryIterator(this);
   }
   public getChildren(){ // can we avoid making this method public?
     return this.children;
   }
-
-  private children: Array<Node>;
 }
 
-class DirectoryIterator implements Iterator<Node> {
+class DirectoryIterator implements IIterator<Node> {
   private files : Array<Node> ;
-  private fileCnt : number;
+  private fileCount : number;
 
   constructor(d: Directory) {
     this.files = d.getChildren(); 
-    this.fileCnt = 0;
+    this.fileCount = 0;
   }
 
-  public first() : void { this.fileCnt = 0; }
-  public next() : void { this.fileCnt++; }
+  public first() : void { this.fileCount = 0; }
+  public next() : void { this.fileCount++; }
   public isDone() : boolean {
-    return this.fileCnt == this.files.length;
+    return this.fileCount == this.files.length;
   }
   public current() : Node {
-    return this.files[this.fileCnt];
+    return this.files[this.fileCount];
   }
 }  
 

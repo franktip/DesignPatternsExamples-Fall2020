@@ -2,7 +2,7 @@ import Directory from './directory'
 import Node from './node'
 
 class File extends Node { 
-  private observers = new Array<Observer>();
+  private observers = new Array<IObserver>();
 
   constructor(n: string, p: Directory){ 
     super(n,p); 
@@ -14,12 +14,12 @@ class File extends Node {
     }  
     return result;
   }
-  public attach(o: Observer) : void{
+  public attach(o: IObserver) : void{
     if (!this.observers.includes(o)){
       this.observers.push(o);
     }
   }
-  public detach(o: Observer) : void {
+  public detach(o: IObserver) : void {
     this.observers.splice(this.observers.indexOf(o));
   }
   public notifyObservers() : void {

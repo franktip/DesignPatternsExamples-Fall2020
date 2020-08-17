@@ -1,6 +1,6 @@
 import Directory from './directory'
 import File from './file'
-import Iterator from './iterator';
+import IIterator from './iiterator';
 
 let root = new Directory("");
 let usr = new Directory("usr", root);
