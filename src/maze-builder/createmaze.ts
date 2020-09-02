@@ -1,8 +1,8 @@
 import Maze from './maze' 
 import Direction from './direction'; 
-import MazeBuilder from './mazebuilder';
+import IMazeBuilder from './imazebuilder';
 
-function createMaze(builder: MazeBuilder): Maze {
+function createMaze(builder: IMazeBuilder): Maze {
   builder.buildMaze();
   let r1 = builder.buildRoom()
   let r2 = builder.buildRoom()
@@ -10,7 +10,7 @@ function createMaze(builder: MazeBuilder): Maze {
   return builder.getMaze();
 }
 
-function createBiggerMaze(builder: MazeBuilder): Maze {
+function createBiggerMaze(builder: IMazeBuilder): Maze {
   builder.buildMaze();
   let r1 = builder.buildRoom()
   let r2 = builder.buildRoom()

@@ -2,7 +2,7 @@ import Maze from "./maze";
 import Direction from "./direction";
 import Room from "./room";
 
-interface MazeBuilder { 
+interface IMazeBuilder { 
   buildMaze() : void  
   buildRoom() : Room 
   buildDoor(roomFrom: Room, sideFrom: Direction,
@@ -10,4 +10,4 @@ interface MazeBuilder {
   getMaze() : Maze  
 }
 
-export default MazeBuilder
+export default IMazeBuilder

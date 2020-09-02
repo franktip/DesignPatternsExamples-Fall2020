@@ -3,9 +3,9 @@ import Room from "./room";
 import Direction from "./direction";
 import Wall from "./wall";
 import Door from "./door";
-import MazeBuilder from "./mazebuilder";
+import IMazeBuilder from "./imazebuilder";
 
-class StandardMazeBuilder implements MazeBuilder {
+class StandardMazeBuilder implements IMazeBuilder {
   public buildMaze(): void {
     this.theMaze = new Maze();
   }
