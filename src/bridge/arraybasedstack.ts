@@ -2,29 +2,23 @@ import IStack from "./istack";
  
 class ArrayBasedStack<T> implements IStack<T> {
   private elements : T[];    
-  private count : number;
 
   constructor(){
     this.elements = [];
-    this.count = 0;
     console.log("creating ArrayBasedStack")
   }
-
   public push(t: T): void { 
-    this.elements.push(t);
-    this.count++;
+    this.elements.unshift(t);
   }
   public pop(): T {
-    if ((this.count === 0)){ 
+    if ((this.elements.length === 0)){ 
       throw new Error("cannot pop from empty stack!")
     } else {
-      let elem = this.elements[this.count-1]
-      this.count--;
-      return elem;
+      return this.elements.shift();
     }
   }   
   public size(): number {
-    return this.count;
+    return this.elements.length;
   }
 }
 
