@@ -18,8 +18,8 @@ class Directory extends Node {
   public add(n: Node) : void {
     this.children.push(n); 
   }
-  public accept(v: IFileSystemVisitor) : void {
-    v.visitDirectory(this);
+  public acceptVisitor(v: IFileSystemVisitor) : void {
+    v.ifDirectory(this);
     // no, it's up to the visitor to decide whether to recur on the children
     // this.children.forEach((child) => child.accept(v))
   }
