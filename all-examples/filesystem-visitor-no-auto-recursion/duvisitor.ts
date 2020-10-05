@@ -15,6 +15,7 @@ class DuVisitor implements IFileSystemVisitor {
   }
   public visitDirectory(d: Directory) : void {
     this.nrDirectories++;
+    d.getChildren().forEach((child) => child.accept(this))
   }
   public visitLink(l: Link) : void {
     this.nrLinks++;
