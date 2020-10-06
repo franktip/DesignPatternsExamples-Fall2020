@@ -15,3 +15,8 @@ The repository includes a few examples in addition to the ones covered in the le
   pattern that enables concrete visitors to specify whether a visitor should recursively 
   visit a node's children.
 
+* vendingmachine-state-v2 illustrates an alternative solution to the vending machine
+  problem, which also uses the State pattern. This approach avoids the use of singletons
+  and relies on the ability of TypeScript modules to export a single value, and it places
+  the logic for state transitions in the context.
+
