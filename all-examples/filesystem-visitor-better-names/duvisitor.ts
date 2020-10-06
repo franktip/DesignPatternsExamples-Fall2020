@@ -1,25 +1,27 @@
+import Node from './node'
 import File from './file'
 import Directory from './directory'
 import Link from './link'
 import IFileSystemVisitor from './ifilesystemvisitor';
 
 class DuVisitor implements IFileSystemVisitor {
-
   private nrFiles = 0
   private nrDirectories = 0
   private nrLinks = 0
   private totalSize = 0
-  
-  constructor() { }
+  constructor(startingNode: Node) {
+    startingNode.acceptVisitor(this);
+  }
 
-  public visitFile(f: File): void {
+  public ifFile(f: File): void {
     this.nrFiles++;
     this.totalSize += f.size();
   }
-  public visitDirectory(d: Directory): void {
+  public ifDirectory(d: Directory): void {
     this.nrDirectories++;
+    d.getChildren().forEach((child) => child.acceptVisitor(this))
   }
-  public visitLink(l: Link): void {
+  public ifLink(l: Link): void {
     this.nrLinks++;
   }
 
