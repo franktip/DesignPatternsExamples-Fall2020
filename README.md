@@ -5,7 +5,7 @@ during the lectures on Design Patterns (weeks 5 and 6) by Profs. Bell, Tip, and 
 
 The various examples are now kept in the folder all-examples/ .  To run
 one or more of the examples, move its folder to live directly under src/ .
-I've updated the npm scripts so that "npm run run" will compile all .ts files
+We have updated the npm scripts so that "npm run run" will compile all .ts files
 contained in the directory tree under src, and will run all the
 dist/*/index.js files it finds. 
 
