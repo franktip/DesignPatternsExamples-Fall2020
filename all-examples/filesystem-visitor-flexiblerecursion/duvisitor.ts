@@ -5,9 +5,9 @@ import IFileSystemVisitor from './ifilesystemvisitor';
 
 class DuVisitor implements IFileSystemVisitor {
   
-  private nrFiles = 0,
-  private nrDirectories = 0,
-  private nrLinks = 0,
+  private nrFiles = 0
+  private nrDirectories = 0
+  private nrLinks = 0
   private totalSize = 0
   
   // parameter specifies whether or not to recurse into directories
