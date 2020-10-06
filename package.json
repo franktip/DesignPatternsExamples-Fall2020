@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "tests": "mocha --require ts-node/register tests/**/*.ts"
+    "test": "ts-mocha src/*/*.spec.ts",
+    "run": "tsc && node js/run-all.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "@types/mocha": "^8.0.0",
     "chai": "^4.2.0",
     "mocha": "^8.0.1",
+    "ts-mocha": "^7.0.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.7"
   },
